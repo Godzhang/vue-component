@@ -1,23 +1,26 @@
 <template>
   <div class="home-page">
-    
+    <InputNumber v-model="num" :min="0" :max="10"></InputNumber>
   </div>
 </template>
 
 <script>
+import InputNumber from '../components/InputNumber'
+
 export default {
   data () {
-    return {}
+    return {
+      num: 2
+    }
   },
-  async created (){
-    await this.init()
-    console.log(1)
+  created (){
+    
   },
   methods: {
     init () {}
   },
   components: {
-
+    InputNumber
   }
 }
 </script>

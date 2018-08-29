@@ -1,0 +1,15 @@
+.fe-icon-box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-size: 15px 15px;
+}
+
+.fe-icon-mius {
+  @extend .fe-icon-box;
+  background: url(../assets/icon/fe-icon-mius.png) center center no-repeat;
+}
+.fe-icon-plus {
+  @extend .fe-icon-box;
+  background: url(../assets/icon/fe-icon-plus.png) center center no-repeat;
+}
