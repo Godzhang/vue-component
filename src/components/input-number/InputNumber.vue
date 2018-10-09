@@ -1,7 +1,7 @@
 <template>
   <div class="fe-input-number">
     <span role="button" class="fe-input-button fe-mius-button" @click="changeNumber('mius')">-</span>
-    <input class="fe-input-box" v-model="number" @blur="onInput" />
+    <input class="fe-input-box" v-model="number" @blur="onBlur" />
     <span role="button" class="fe-input-button fe-plus-button" @click="changeNumber('plus')">+</span>
   </div>
 </template>
@@ -18,15 +18,15 @@ export default {
     }
   },
   watch: {
-    value (newVal) {
-
+    number (newVal) {
+      this.$emit('change', newVal)
     }
   },
   methods: {
     changeNumber (type) {
       this.number = type === 'mius' ? Math.max(--this.number, this.min) : Math.min(++this.number, this.max)
     },
-    onInput () {
+    onBlur () {
       if (typeof +this.number === 'number' && !isNaN(+this.number)) {
         this.number = this.getValidateNumber(this.number)
       } else {
@@ -40,7 +40,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '../scss/colors.scss';
+@import '../../scss/colors.scss';
 
 .fe-input-number {
   display: inline-flex;
